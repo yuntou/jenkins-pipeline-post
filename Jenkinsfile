@@ -31,6 +31,8 @@ pipeline {
                 sh 'mkdir /home/jenkins/tomcat-web/shopping'
                 echo 'Copying web application...'             
                 sh 'cp -r shopping/* /home/jenkins/tomcat-web/shopping'
+                echo 'cp file from local container to docker desktop container'
+                sh 'docker cp /home/jenkins/tomcat-web/shopping tomcat1:/usr/local/tomcat/webapps/'
             }
         }
     }
